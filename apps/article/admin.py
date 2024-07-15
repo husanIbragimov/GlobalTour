@@ -6,7 +6,7 @@ from .models import Article, Comment
 class CommentInline(admin.TabularInline):
     readonly_fields = ('name', 'phone_number', 'content', 'created_at')
     model = Comment
-    extra = 1
+    extra = 0
 
 
 @admin.register(Article)

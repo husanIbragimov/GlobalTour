@@ -1,7 +1,6 @@
 from ckeditor.fields import RichTextField
 from django.db import models
 from django.shortcuts import reverse
-
 from django.template.defaultfilters import slugify
 
 from apps.common.models import BaseModel

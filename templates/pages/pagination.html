@@ -1,10 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{#<div class="row">#}
+{#    <div class="col-md-12 text-center">#}
+{#        <!-- Pagination -->#}
+{#        <ul class="blog-pagination-wrap align-center mb-30 mt-30">#}
+{#            <li><a href="#"><i class="ti-angle-left"></i></a></li>#}
+{#            <li><a href="#">1</a></li>#}
+{#            <li><a href="#" class="active">2</a></li>#}
+{#            <li><a href="#">3</a></li>#}
+{#            <li><a href="#"><i class="ti-angle-right"></i></a></li>#}
+{#        </ul>#}
+{#    </div>#}
+{#</div>#}
 
-</body>
-</html>
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <!-- Pagination -->
+        <ul class="blog-pagination-wrap align-center mb-30 mt-30">
+            {% if page_obj.has_previous %}
+                <li><a href="?page=1"><i class="ti-angle-left"></i></a></li>
+            {% else %}
+                <li><a href="#"><i class="ti-angle-left"></i></a></li>
+            {% endif %}
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li><a href="?page={{ num }}" class="active">{{ num }}</a></li>
+                {% else %}
+                    <li><a href="?page={{ num }}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+            {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.paginator.num_pages }}"><i class="ti-angle-right"></i></a></li>
+            {% else %}
+                <li><a href="#"><i class="ti-angle-right"></i></a></li>
+            {% endif %}
+        </ul>
+    </div>
+</div>

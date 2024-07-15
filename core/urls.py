@@ -25,6 +25,7 @@ urlpatterns = [
     # include urls from apps
     path('', include('apps.tour.urls')),
     path('about/', include('apps.about.urls')),
+    path('article/', include('apps.article.urls')),
 ]
 
 if settings.DEBUG:
