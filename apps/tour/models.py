@@ -20,7 +20,7 @@ class Tour(BaseModel):
     description = RichTextField(null=True, blank=True)
 
     def __str__(self):
-        return self.name
+        return f"None"
 
     def save(self, *args, **kwargs):
         self.slug = f"{self.name}".replace(' ', '-').lower().replace('.', '')
@@ -54,4 +54,4 @@ class TourGallery(BaseModel):
     image = models.ImageField(upload_to="galleries/", null=True, blank=True)
 
     def __str__(self):
-        return self.tour
+        return self.image.url
