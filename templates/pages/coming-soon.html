@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-<!-- Mirrored from duruthemes.com/demo/html/travol/multipage-slider/404.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jul 2024 16:46:23 GMT -->
+<!-- Mirrored from duruthemes.com/demo/html/travol/multipage-slider/coming-soon.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jul 2024 16:46:23 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -59,20 +59,20 @@
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                     <li class="nav-item dropdown"> <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Pages <i class="ti-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="tour-details.html" class="dropdown-item"><span>Tour Details</span></a></li>
+                            <li><a href="tour/tour-details.html" class="dropdown-item"><span>Tour Details</span></a></li>
                             <li><a href="tour-search.html" class="dropdown-item"><span>Tour Search</span></a></li>
-                            <li><a href="post.html" class="dropdown-item"><span>Post Single</span></a></li>
+                            <li><a href="article/article-detail.html" class="dropdown-item"><span>Post Single</span></a></li>
                             <li class="dropdown-submenu dropdown"> <a class="dropdown-item active dropdown-toggle" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false" href="#"><span>Other Pages <i class="ti-angle-right"></i></span></a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="coming-soon.html" class="dropdown-item"><span>Coming Soon</span></a></li>
-                                    <li><a href="404.html" class="dropdown-item active"><span>404 Page</span></a></li>
+                                    <li><a href="coming-soon.html" class="dropdown-item active"><span>Coming Soon</span></a></li>
+                                    <li><a href="404.html" class="dropdown-item"><span>404 Page</span></a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">Blog <i class="ti-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="blog.html" class="dropdown-item"><span>Blog 01</span></a></li>
+                            <li><a href="article/article.html" class="dropdown-item"><span>Blog 01</span></a></li>
                             <li><a href="blog2.html" class="dropdown-item"><span>Blog 02</span></a></li>
                         </ul>
                     </li>
@@ -81,26 +81,63 @@
             </div>
         </div>
     </nav>
-    <!-- 404 -->
+    <!-- Comming soon -->
     <section class="comming section-padding">
         <div class="v-middle">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-12 text-center">
-                        <h1>404</h1>
+                <div class="row text-center mb-20 mt-30">
+                    <div class="col-md-12">
+                        <h2>Coming Soon!</h2>
                     </div>
                 </div>
-                <div class="row text-center mb-15">
-                    <div class="col-md-12">
-                        <h2>Not Found 404</h2>
+                <div class="row text-center mb-20">
+                    <div class="col-6 offset-md-2 col-md-2">
+                        <div class="item">
+                            <div class="down">
+                                <h3 id="days">00</h3>
+                            </div>
+                            <div class="item-info">
+                                <h6 class="mb-0">Days</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <div class="item">
+                            <div class="down">
+                                <h3 id="hours">00</h3>
+                            </div>
+                            <div class="item-info">
+                                <h6 class="mb-0">Hours</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <div class="item">
+                            <div class="down">
+                                <h3 id="minutes">00</h3>
+                            </div>
+                            <div class="item-info">
+                                <h6 class="mb-0">Minutes</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-2">
+                        <div class="item">
+                            <div class="down">
+                                <h3 id="seconds">00</h3>
+                            </div>
+                            <div class="item-info">
+                                <h6 class="mb-0">Seconds</h6>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row text-center">
-                    <div class="col-md-6 offset-md-3 text-center">
-                        <p>The page you are looking for was moved, removed, renamed or never existed.</p>
+                    <div class="offset-md-3 col-md-6">
+                        <p>Sign up for our latest blog & articles.</p>
                         <form>
-                            <input type="text" name="search" placeholder="Search" required>
-                            <button><i class="ti-search"></i> Search</button>
+                            <input type="email" name="email" placeholder="Email Address" required>
+                            <button>Subscribe</button>
                         </form>
                     </div>
                 </div>
@@ -129,10 +166,36 @@
     <script src="js/YouTubePopUp.js"></script>
     <script src="js/select2.js"></script>
     <script src="js/datepicker.js"></script>
-    <script src="js/jquery.counterup.min.js"></script>
     <script src="js/smooth-scroll.min.js"></script>
     <script src="js/custom.js"></script>
+    <script type="text/javascript">
+        function countdown() {
+            var now = new Date();
+            var eventDate = new Date(2023, 11, 6);
+            var currentTiime = now.getTime();
+            var eventTime = eventDate.getTime();
+            var remTime = eventTime - currentTiime;
+            var s = Math.floor(remTime / 1000);
+            var m = Math.floor(s / 60);
+            var h = Math.floor(m / 60);
+            var d = Math.floor(h / 24);
+            h %= 24;
+            m %= 60;
+            s %= 60;
+            h = (h < 10) ? "0" + h : h;
+            m = (m < 10) ? "0" + m : m;
+            s = (s < 10) ? "0" + s : s;
+            document.getElementById("days").textContent = d;
+            document.getElementById("days").innerText = d;
+            document.getElementById("hours").textContent = h;
+            document.getElementById("minutes").textContent = m;
+            document.getElementById("seconds").textContent = s;
+            setTimeout(countdown, 1000);
+        }
+        countdown();
+
+    </script>
 </body>
 
-<!-- Mirrored from duruthemes.com/demo/html/travol/multipage-slider/404.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jul 2024 16:46:23 GMT -->
+<!-- Mirrored from duruthemes.com/demo/html/travol/multipage-slider/coming-soon.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jul 2024 16:46:23 GMT -->
 </html>

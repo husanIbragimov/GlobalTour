@@ -2,6 +2,8 @@ from ckeditor.fields import RichTextField
 from django.db import models
 from django.shortcuts import reverse
 
+from django.template.defaultfilters import slugify
+
 from apps.common.models import BaseModel
 
 
@@ -15,7 +17,8 @@ class Article(BaseModel):
         return self.name
 
     def save(self, *args, **kwargs):
-        self.slug = f"{self.name}".replace(' ', '-').lower().replace('.', '')
+        if not self.slug:
+            self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -23,10 +26,23 @@ class Article(BaseModel):
 
 
 class Comment(BaseModel):
-    article = models.ForeignKey(Article, on_delete=models.CASCADE)
+    article = models.ForeignKey(
+        Article,
+        on_delete=models.CASCADE,
+        related_name='comments',
+        related_query_name='comment'
+    )
     name = models.CharField(max_length=100)
+    parent = models.ForeignKey(
+        'self',
+        on_delete=models.CASCADE,
+        null=True, blank=True,
+        related_name='children',
+        limit_choices_to={'parent__isnull': True}
+    )
     phone_number = models.CharField(max_length=20, null=True, blank=True)
     content = models.TextField()
+    is_published = models.BooleanField(default=False)
 
     def __str__(self):
         return self.name

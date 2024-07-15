@@ -1,6 +1,7 @@
 from ckeditor.fields import RichTextField
 from django.db import models
 from django.shortcuts import reverse
+from django.template.defaultfilters import slugify
 from django.utils.translation import gettext_lazy as _
 
 from apps.common.models import BaseModel, Country
@@ -20,10 +21,11 @@ class Tour(BaseModel):
     description = RichTextField(null=True, blank=True)
 
     def __str__(self):
-        return f"None"
+        return self.name
 
     def save(self, *args, **kwargs):
-        self.slug = f"{self.name}".replace(' ', '-').lower().replace('.', '')
+        if not self.slug:
+            self.slug = slugify(self.name)
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):
@@ -55,3 +57,25 @@ class TourGallery(BaseModel):
 
     def __str__(self):
         return self.image.url
+
+
+class BookingTour(BaseModel):
+    STATUS = (
+        (0, _('New')),
+        (1, _('Confirmed')),
+        (2, _('Canceled')),
+    )
+    tour = models.ForeignKey(
+        Tour,
+        on_delete=models.CASCADE,
+        related_name="bookings",
+        related_query_name="booking"
+    )
+    status = models.IntegerField(choices=STATUS, default=0)
+    full_name = models.CharField(max_length=100)
+    phone_number = models.CharField(max_length=20)
+    people = models.PositiveIntegerField(default=1)
+    message = models.CharField(max_length=255, null=True, blank=True)
+
+    def __str__(self):
+        return self.full_name
