@@ -1,0 +1,155 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-17 00:08+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: apps/tour/models.py:18
+msgid "Narxi"
+msgstr "Price"
+
+#: apps/tour/models.py:19
+msgid "Sayohat davomiyligi"
+msgstr "Duration of the trip"
+
+#: apps/tour/models.py:20
+msgid "Guruh"
+msgstr "Group"
+
+#: apps/tour/models.py:64
+msgid "New"
+msgstr ""
+
+#: apps/tour/models.py:65
+msgid "Confirmed"
+msgstr ""
+
+#: apps/tour/models.py:66
+msgid "Canceled"
+msgstr ""
+
+#: core/settings.py:130
+msgid "O`zbekcha"
+msgstr "Uzbek"
+
+#: core/settings.py:131
+msgid "English"
+msgstr ""
+
+#: core/settings.py:132
+msgid "Русский"
+msgstr "Russian"
+
+#: templates/about/about.html:75 templates/about/about.html:85
+msgid "Member of team"
+msgstr ""
+
+#: templates/article/article-detail.html:116
+msgid "Recent Posts"
+msgstr ""
+
+#: templates/article/article-detail.html:128
+msgid "No related articles"
+msgstr ""
+
+#: templates/article/article.html:31
+msgid "Travel Agency"
+msgstr ""
+
+#: templates/base.html:53
+msgid "About"
+msgstr ""
+
+#: templates/base.html:56
+msgid "Article"
+msgstr ""
+
+#: templates/base.html:59
+msgid "Tours"
+msgstr ""
+
+#: templates/base.html:81 templates/index3.html:800
+msgid "We Provide Top Destinations Especially For You Book Now and Enjoy!"
+msgstr ""
+
+#: templates/base.html:89
+msgid "Call us, it's toll-free."
+msgstr ""
+
+#: templates/base.html:186
+msgid "Call us"
+msgstr ""
+
+#: templates/base.html:196
+msgid "Write to us"
+msgstr ""
+
+#: templates/base.html:206
+msgid "Address"
+msgstr ""
+
+#: templates/base.html:207
+msgid "Toshkent, Bekabod, Nurli yo`l MFY, Buyuk Ipak yo`li 2/56"
+msgstr "Tashkent Region, Beka City 'Nurli Yol' Mahalla, Great Silk Road, House 2, Apartment 56."
+
+#: templates/base.html:251
+msgid ""
+"Sign up for our monthly blog letter to stay informed about travel and tours"
+msgstr ""
+
+#: templates/base.html:255
+msgid "Send"
+msgstr ""
+
+#: templates/tour/index.html:141 templates/tour/tours.html:53
+msgid "Tour details"
+msgstr ""
+
+#: templates/tour/tour-detail.html:33
+msgid "Group"
+msgstr ""
+
+#: templates/tour/tour-detail.html:35
+msgid "Super"
+msgstr ""
+
+#: templates/tour/tour-detail.html:75 templates/tour/tour-detail.html:79
+msgid "No plans yet"
+msgstr ""
+
+#: templates/tour/tour-detail.html:99
+msgid "Full Name"
+msgstr ""
+
+#: templates/tour/tour-detail.html:104
+msgid "Phone Number"
+msgstr ""
+
+#: templates/tour/tour-detail.html:108
+msgid "Travel Date"
+msgstr ""
+
+#: templates/tour/tour-detail.html:111
+msgid "People"
+msgstr ""
+
+#: templates/tour/tour-detail.html:116
+msgid "Your Enquiry"
+msgstr ""
+
+#: templates/tour/tour-detail.html:120
+msgid "Book Now"
+msgstr ""

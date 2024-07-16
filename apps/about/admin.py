@@ -1,8 +1,15 @@
 from django.contrib import admin
 
+from modeltranslation.admin import TranslationAdmin
 from .models import About, Team, SocialLink
 
-admin.site.register(About)
+
+@admin.register(About)
+class AboutAdmin(TranslationAdmin):
+    list_display = ('name', 'created_at')
+    search_fields = ('name',)
+    readonly_fields = ('created_at', 'updated_at')
+
 
 
 class SocialLinkInline(admin.TabularInline):
