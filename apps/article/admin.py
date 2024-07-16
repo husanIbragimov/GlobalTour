@@ -16,3 +16,6 @@ class ArticleAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     readonly_fields = ('created_at', 'updated_at')
     inlines = [CommentInline]
+
+
+admin.site.register(Comment)

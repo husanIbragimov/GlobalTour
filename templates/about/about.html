@@ -63,73 +63,30 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-subtitle">Travel Experts</div>
-                    <div class="section-title">Meet Our <span>Guides</span></div>
+                    <div class="section-title">Our <span>Team</span></div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4">
-                    <div class="team-card mb-30">
-                        <div class="team-img"><img src="img/team/01.jpg" alt="" class="w-100"></div>
-                        <div class="team-content">
-                            <h3 class="team-title">Emily Norman<span>Switzerland Guide</span></h3>
-                            <p class="team-text">Nulla quis efficitur lacus sulvinar suere ausue in eduis euro vesatien
-                                arcuman ontese auctor ac aleuam aretra.</p>
-                            <div class="social">
-                                <div class="full-width">
-                                    <a href="#"><i class="ti-linkedin"></i></a>
-                                    <a href="#"><i class="ti-facebook"></i></a>
-                                    <a href="#"><i class="ti-twitter"></i></a>
-                                    <a href="#"><i class="ti-instagram"></i></a>
+                {% for member in teams %}
+                    <div class="col-md-4">
+                        <div class="team-card mb-30">
+                            <div class="team-img"><img src="{{ member.image.url }}" alt="" class="w-100"></div>
+                            <div class="team-content">
+                                <h3 class="team-title">{{ member.name }}<span>{% trans 'Member of team' %}</span></h3>
+                                <div class="social">
+                                    <div class="full-width">
+                                        {% for social in member.social_links.all %}
+                                            <a href="{{ social.url }}"><i class="ti-{{ social.name|lower }}"></i></a>
+                                        {% endfor %}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="title-box">
-                            <h3 class="mb-0">Leonie Norman<span>Switzerland Guide</span></h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team-card mb-30">
-                        <div class="team-img"><img src="img/team/02.jpg" alt="" class="w-100"></div>
-                        <div class="team-content">
-                            <h3 class="team-title">Andreas Brown<span>Maldives Guide</span></h3>
-                            <p class="team-text">Nulla quis efficitur lacus sulvinar suere ausue in eduis euro vesatien
-                                arcuman ontese auctor ac aleuam aretra.</p>
-                            <div class="social">
-                                <div class="full-width">
-                                    <a href="#"><i class="ti-linkedin"></i></a>
-                                    <a href="#"><i class="ti-facebook"></i></a>
-                                    <a href="#"><i class="ti-twitter"></i></a>
-                                    <a href="#"><i class="ti-instagram"></i></a>
-                                </div>
+                            <div class="title-box">
+                                <h3 class="mb-0">{{ member.name }}<span>{% trans 'Member of team' %}</span></h3>
                             </div>
                         </div>
-                        <div class="title-box">
-                            <h3 class="mb-0">Andreas Brown<span>Maldives Guide</span></h3>
-                        </div>
                     </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="team-card mb-30">
-                        <div class="team-img"><img src="img/team/03.jpg" alt="" class="w-100"></div>
-                        <div class="team-content">
-                            <h3 class="team-title">Angelina White<span>Greece Guide</span></h3>
-                            <p class="team-text">Nulla quis efficitur lacus sulvinar suere ausue in eduis euro vesatien
-                                arcuman ontese auctor ac aleuam aretra.</p>
-                            <div class="social">
-                                <div class="full-width">
-                                    <a href="#"><i class="ti-linkedin"></i></a>
-                                    <a href="#"><i class="ti-facebook"></i></a>
-                                    <a href="#"><i class="ti-twitter"></i></a>
-                                    <a href="#"><i class="ti-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="title-box">
-                            <h3 class="mb-0">Angelina White<span>Greece Guide</span></h3>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </section>

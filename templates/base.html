@@ -45,12 +45,20 @@
         <!-- Menu -->
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto">
-
-                <li class="nav-item"><a class="nav-link active" href="{% url 'tour:index' %}">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'about:about_us' %}">{% trans 'About' %}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'article:article_list' %}">{% trans 'Article' %}</a></li>
-                <li class="nav-item"><a class="nav-link" href="{% url 'tour:tour_list' %}">{% trans 'Tours' %}</a></li>
-                <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                <li class="nav-item"><a
+                        class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}"
+                        href="{% url 'tour:index' %}">Home</a></li>
+                <li class="nav-item"><a
+                        class="nav-link {% if request.resolver_match.url_name == 'about_us' %}active{% endif %}"
+                        href="{% url 'about:about_us' %}">{% trans 'About' %}</a></li>
+                <li class="nav-item"><a
+                        class="nav-link {% if request.resolver_match.url_name == 'article_list' %}active{% endif %}"
+                        href="{% url 'article:article_list' %}">{% trans 'Article' %}</a></li>
+                <li class="nav-item"><a
+                        class="nav-link {% if request.resolver_match.url_name == 'tour_list' %}active{% endif %}"
+                        href="{% url 'tour:tour_list' %}">{% trans 'Tours' %}</a></li>
+                {#                <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'tour:tour_list' %}active{% endif %}"#}
+                {#                                        href="contact.html">Contact</a></li>#}
             </ul>
         </div>
     </div>
@@ -175,7 +183,7 @@
                                     <div class="icon-footer"><i class="flaticon-phone-call"></i></div>
                                 </div>
                                 <div class="footer-contact-link-content">
-                                    <h6>Call us</h6>
+                                    <h6>{% trans 'Call us' %}</h6>
                                     <p>{{ about.phone_number }}</p>
                                 </div>
                             </div>
@@ -185,8 +193,8 @@
                                     <div class="icon-footer"><i class="flaticon-message"></i></div>
                                 </div>
                                 <div class="footer-contact-link-content">
-                                    <h6>Write to us</h6>
-                                    <p>info@travolagency.com</p>
+                                    <h6>{% trans 'Write to us' %}</h6>
+                                    <p>globalbigtourism@gmail.com</p>
                                 </div>
                             </div>
                             <div class="footer-contact-links-divider"></div>
@@ -195,8 +203,8 @@
                                     <div class="icon-footer"><i class="flaticon-placeholder"></i></div>
                                 </div>
                                 <div class="footer-contact-link-content">
-                                    <h6>Address</h6>
-                                    <p>24 King St, SC 29401 USA</p>
+                                    <h6>{% trans 'Address' %}</h6>
+                                    <p>{% trans "Toshkent, Bekabod, Nurli yo`l MFY, Buyuk Ipak yo`li 2/56" %}</p>
                                 </div>
                             </div>
                         </div>
@@ -213,8 +221,6 @@
                         <div class="footer-logo"><img class="img-fluid" src="{% static '' %}img/logo-light.png" alt="">
                         </div>
                         <div class="widget-text">
-                            <p>Quisque imperdiet sapien porttito the bibendum sellentesque the commodo erat acar accumsa
-                                lobortis, enim diam the nesuen.</p>
                             <div class="social-icons">
                                 <ul class="list-inline">
                                     <li><a href="#"><i class="ti-instagram"></i></a></li>
@@ -231,10 +237,10 @@
                     <div class="widget clearfix usful-links">
                         <h3 class="widget-title">Quick Links</h3>
                         <ul>
+                            <li><a href="{% url 'tour:index' %}">Home</a></li>
                             <li><a href="{% url 'about:about_us' %}">About</a></li>
-                            <li><a href="tours.html">Tours</a></li>
-                            <li><a href="destination.html">Destinations</a></li>
-                            <li><a href="article/article.html">Blog</a></li>
+                            <li><a href="{% url 'tour:tour_list' %}">Tour Plan</a></li>
+                            <li><a href="{% url 'article:article_list' %}">Blog</a></li>
                         </ul>
                     </div>
                 </div>
@@ -242,11 +248,11 @@
                 <div class="col-md-4 widget-area">
                     <div class="widget clearfix">
                         <h3 class="widget-title">Subscribe</h3>
-                        <p>Sign up for our monthly blog letter to stay informed about travel and tours</p>
+                        <p>{% trans 'Sign up for our monthly blog letter to stay informed about travel and tours' %}</p>
                         <div class="widget-newsletter">
                             <form action="#">
                                 <input type="email" placeholder="Email Address" required>
-                                <button type="submit">Send</button>
+                                <button type="submit">{% trans 'Send' %}</button>
                             </form>
                         </div>
                     </div>
@@ -264,6 +270,23 @@
         </div>
     </div>
 </footer>
+
+<script>
+    wind.on("scroll", function () {
+        var bodyScroll = wind.scrollTop(),
+            navbar = $(".navbar"),
+            logo = $(".navbar .logo> img");
+
+        if (bodyScroll > 100) {
+            navbar.addClass("nav-scroll");
+            logo.attr("src", "{% static 'img/logo-dark.png' %}");
+        } else {
+            navbar.removeClass("nav-scroll");
+            logo.attr("src", "{% static 'img/logo-light.png' %}");
+        }
+    });
+</script>
+
 <!-- jQuery -->
 <script src="{% static '' %}js/jquery-3.6.3.min.js"></script>
 <script src="{% static '' %}js/jquery-migrate-3.0.0.min.js"></script>

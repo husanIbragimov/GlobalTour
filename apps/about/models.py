@@ -30,7 +30,8 @@ class SocialLink(BaseModel):
         ('linkedin', 'Linkedin'),
         ('youtube', 'Youtube'),
     )
-    team = models.ForeignKey(Team, on_delete=models.CASCADE)
+    team = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='social_links',
+                             related_query_name='social_link')
     name = models.CharField(max_length=100, choices=TYPES)
     url = models.URLField(default='#')
 

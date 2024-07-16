@@ -1,22 +1,30 @@
+from django.contrib import messages
+from django.core.paginator import Paginator
+from django.db.models import Q
+from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import View, ListView
+from django.views.generic import View
 
 from .models import Article
 
 
-class ArticleListView(ListView):
+class ArticleListView(View):
     template_name = 'article/article.html'
     paginate_by = 1
     model = Article
 
-    def get_queryset(self):
+    def get(self, request, *args, **kwargs):
         query_params = self.request.GET
-        print(query_params)
-        return Article.objects.all().order_by('-id')
+        page = query_params.get('page')
+        search = query_params.get('search')
+        if search:
+            articles = Article.objects.filter(Q(name__icontains=search) | Q(content__icontains=search)).order_by('-id')
+        else:
+            articles = Article.objects.all().order_by('-id')
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        return context
+        paginator = Paginator(articles, self.paginate_by)
+        object_list = paginator.get_page(page)
+        return render(request, self.template_name, {'object_list': object_list})
 
 
 class ArticleDetailView(View):
@@ -32,3 +40,16 @@ class ArticleDetailView(View):
             'related_articles': related_articles
         }
         return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        url = request.META.get('HTTP_REFERER')
+        article = get_object_or_404(Article, slug=kwargs['slug'])
+        article.comments.create(
+            name=request.POST.get('name'),
+            phone_number=request.POST.get('phone_number'),
+            content=request.POST.get('message'),
+            is_published=False
+        )
+        message = 'Sizning sharhingiz qabul qilindi. Tez orada siz bilan bog\'lanamiz.'
+        messages.success(request, message, extra_tags='success')
+        return redirect(url)

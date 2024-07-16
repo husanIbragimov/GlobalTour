@@ -10,6 +10,6 @@ class AboutView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         ctx['about'] = About.objects.last()
-        ctx['teams'] = Team.objects.all()
+        ctx['teams'] = Team.objects.prefetch_related('social_links').all()
         ctx['social_links'] = SocialLink.objects.all()
         return ctx

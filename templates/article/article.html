@@ -30,7 +30,7 @@
                             <div class="con"> <span class="category">
                                     <a href="#">{% trans 'Travel Agency' %}</a>
                                 </span>
-                                <h5><a href="{{ article.get_absolute_url }}">{{ article.name }}</a></h5>
+                                <h5><a href="{{ article.get_absolute_url }}">{{ article.name|slice:":25" }}</a></h5>
                             </div>
                         </div>
                     </div>

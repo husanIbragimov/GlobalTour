@@ -51,13 +51,13 @@
     <div class="booking-wrapper">
         <div class="container">
             <div class="tour-inner clearfix form-inline justify-content-center">
-                <form action="https://duruthemes.com/demo/html/travol/multipage-slider/tours.html"
+                <form action="{% url 'tour:tour_list' %}" method="get"
                       class="form1 clearfix">
                     <div class="col1 c1">
                         <div class="input2_wrapper">
                             <label>Where to?</label>
                             <div class="input2_inner">
-                                <input type="text" class="form-control input" placeholder="Where to?">
+                                <input type="text" name="search" class="form-control input" placeholder="Where to?">
                             </div>
                         </div>
                     </div>
@@ -122,7 +122,7 @@
                                 <div class="square-container2">
                                     <h4>{{ tour.name }}</h4>
                                     <h6>{{ tour.price|intcomma }} UZS</h6>
-                                    <p>{{ tour.description|safe }}</p>
+                                    {#                                    <p>{{ tour.description|safe }}</p>#}
                                     <div class="row tour-list mb-30">
                                         <div class="col col-md-6">
                                             <ul>
@@ -133,11 +133,12 @@
                                         <div class="col col-md-6">
                                             <ul>
                                                 <li><i class="ti-location-pin"></i> {{ tour.country }}</li>
-                                                <li><i class="ti-face-smile"></i> 9.5 Superb</li>
+                                                <li><i class="ti-face-smile"></i> 10 Super</li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="btn-line"><a href="{{ tour.get_absolute_url }}">Tour details</a></div>
+                                    <div class="btn-line"><a
+                                            href="{{ tour.get_absolute_url }}">{% trans 'Tour details' %}</a></div>
                                 </div>
                             </div>
                         </div>
@@ -209,21 +210,25 @@
                                 {% if country.image %}
                                     <figure><img src="{{ country.image.url }}" alt="" class="img-fluid"></figure>
                                 {% else %}
-                                    <figure><img src="{% static 'img/countries/map.jpg' %}" alt="" class="img-fluid">
+                                    <figure><img src="{% static 'img/countries/blue-city.jpg' %}" alt=""
+                                                 class="img-fluid">
                                     </figure>
                                 {% endif %}
                                 <div class="caption padding-left">
-                                    <div class="country country1">
+                                    <div class="country">
                                         <h3>Best Tours</h3>
-                                        <h4><a href="tour-details.html">{{ country }}</a></h4>
+                                        <h4>
+                                            <a href="{% url 'tour:tour_list' %}?country={{ country|lower }}">{{ country }}</a>
+                                        </h4>
                                         {% if country.children %}
                                             <div class="row tour-list">
                                                 <div class="col-md-4">
                                                     <ul>
                                                         {% for child in country.children.all|slice:":3" %}
                                                             <li>
-                                                                <i class="ti-location-pin"></i> <a href="#"
-                                                                                                   class="link-btn">{{ child }}</a>
+                                                                <i class="ti-location-pin"></i> <a
+                                                                    href="{% url 'tour:tour_list' %}?country={{ country|lower }}"
+                                                                    class="link-btn">{{ child }}</a>
                                                             </li>
                                                         {% endfor %}
                                                     </ul>
@@ -252,10 +257,11 @@
                                         {% endif %}
                                         <hr class="border-2">
                                         <div class="info-wrapper">
-                                            <div class="more"><a href="tour-details.html" class="link-btn"
+                                            <div class="more"><a href="{% url 'tour:tour_list' %}" class="link-btn"
                                                                  tabindex="0">View all places <i
                                                     class="ti-arrow-right"></i></a></div>
-                                            <div class="butn-dark"><a href="#" data-scroll-nav="1"><span>Book Now</span></a>
+                                            <div class="butn-dark"><a
+                                                    href="{% url 'tour:tour_list' %}?country={{ country|lower }}"><span>Book Now</span></a>
                                             </div>
                                         </div>
                                     </div>
@@ -270,7 +276,7 @@
     <!-- Banner Tour Video -->
     <section class="dynamic-video-wrapper" data-overlay-dark="3">
         <video width="100%" height="100%" autoplay="autoplay" muted preload="auto" loop="loop">
-            <source src="https://duruthemes.com/demo/html/travol/travel-video.mp4" type="video/mp4">
+            <source src="{% static 'img/travel-video.mp4' %}" type="video/mp4">
         </video>
         <div class="wrap-content v-middle">
             <div class="container">

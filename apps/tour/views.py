@@ -1,11 +1,12 @@
 from django.contrib import messages
 from django.shortcuts import render, redirect
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from apps.article.models import Article
 from apps.common.models import Country
 from .models import Tour, BookingTour
+from django.core.paginator import Paginator
 
 
 class IndexView(TemplateView):
@@ -46,11 +47,14 @@ class TourDetailView(View):
 
 class TourListView(View):
     template_name = 'tour/tours.html'
-    paginate_by = 1
+    paginate_by = 9
 
     def get(self, request, *args, **kwargs):
-        tours = Tour.objects.prefetch_related('galleries', 'plans').all()
-        return render(request, self.template_name, {'tours': tours})
+        page = request.GET.get('page')
+        tours = Tour.objects.prefetch_related('galleries', 'plans').order_by('-id')
+        paginator = Paginator(tours, self.paginate_by)
+        object_list = paginator.get_page(page)
+        return render(request, self.template_name, {'object_list': object_list})
 
     def post(self, request, *args, **kwargs):
         url = request.META.get('HTTP_REFERER')

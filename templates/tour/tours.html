@@ -3,7 +3,7 @@
 
 {% block content %}
     <div class="banner-header section-padding valign bg-img bg-fixed" data-overlay-dark="6"
-         data-background="img/slider/2.jpg">
+         data-background="{% static '' %}img/slider/2.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 caption mt-90">
@@ -14,98 +14,50 @@
         </div>
     </div>
     <!-- Tours 3 -->
-    <div class="tours3 section-padding">
+    <div class="tours3 section-padding bg-lightnav">
         <div class="container">
             <div class="row">
-                <!-- Tour list -->
-                <div class="col-md-8">
-                    <div class="row">
-                        {% for tour in tours %}
-                            <div class="col-md-6">
-                                <div class="square-flip">
-                                    <div class="square bg-img"
-                                         data-background="{{ tour.galleries.first.image.url }}"><span
-                                            class="category"><a href="#0">{{ tour.category }}</a></span>
-                                        <div class="square-container d-flex align-items-end justify-content-end">
-                                            <div class="box-title">
-                                                <h4>Rome</h4>
-                                                <h6>{{ tour.prize|intcomma }}</h6>
-                                            </div>
-                                        </div>
-                                        <div class="flip-overlay"></div>
-                                    </div>
-                                    <div class="square2">
-                                        <div class="square-container2">
-                                            <h4>{{ tour.country }}</h4>
-                                            <h6>{{ tour }}</h6>
-                                            <p>Travel non lorem ac erat susce bibendum nulla facilisi. Sedeuter nunc
-                                                voluat
-                                                miss
-                                                conse viventa amet vestibulum.</p>
-                                            <div class="row tour-list mb-30">
-                                                <div class="col col-md-6">
-                                                    <ul>
-                                                        <li><i class="ti-time"></i> 3 Days</li>
-                                                        <li><i class="ti-user"></i> 10+</li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col col-md-6">
-                                                    <ul>
-                                                        <li><i class="ti-location-pin"></i> Italy</li>
-                                                        <li><i class="ti-face-smile"></i> 9.5 Superb</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="btn-line"><a href="tour/tour-details.html">Tour details</a>
-                                            </div>
-                                        </div>
+                {% for tour in object_list %}
+                    <div class="col-md-4">
+                        <div class="square-flip">
+                            <div class="square bg-img" data-background="{{ tour.galleries.first.image.url }}"><span
+                                    class="category"><a href="#">{{ tour.country }}</a></span>
+                                <div class="square-container d-flex align-items-end justify-content-end">
+                                    <div class="box-title">
+                                        <h4>{{ tour.name }}</h4>
+                                        <h6 class="fw-bold">{{ tour.price|intcomma }} UZS</h6>
                                     </div>
                                 </div>
+                                <div class="flip-overlay"></div>
                             </div>
-                        {% endfor %}
-                    </div>
-                    {% include 'pages/pagination.html' %}
-                </div>
-                <!-- Tour search -->
-                <div class="col-md-4">
-                    <div class="sidebar">
-                        <div class="right-sidebar">
-                            <div class="right-sidebar item">
-                                <h3><span class="right-sidebar">Plan Your Trip</span></h3>
-                                <form method="post" class="right-sidebar item-form" action="#">
-                                    <div class="row">
-                                        <div class="col-md-12 form-group select1_inner">
-                                            <select class="select2 select">
-                                                <option value="0">Destination</option>
-                                                <option value="1">Italy</option>
-                                                <option value="2">Maldives</option>
-                                                <option value="3">Greece</option>
-                                                <option value="3">France</option>
-                                                <option value="3">Canada</option>
-                                            </select>
+                            <div class="square2 bg-white">
+                                <div class="square-container2">
+                                    <h4>{{ tour.name }}</h4>
+                                    <h6>{{ tour.price|intcomma }} UZS</h6>
+                                    {#                                    <p>{{ tour.description|safe }}</p>#}
+                                    <div class="row tour-list mb-30">
+                                        <div class="col col-md-6">
+                                            <ul>
+                                                <li><i class="ti-time"></i> {{ tour.duration }}</li>
+                                                <li><i class="ti-user"></i> {{ tour.group }}+</li>
+                                            </ul>
                                         </div>
-                                        <div class="col-md-12 form-group">
-                                            <input name="name" type="text" placeholder="Travel Type">
-                                        </div>
-                                        <div class="col-md-12 form-group input1_inner">
-                                            <input type="text" class="form-control input datepicker"
-                                                   placeholder="Start Date" required>
-                                        </div>
-                                        <div class="col-md-12 form-group input1_inner">
-                                            <input type="text" class="form-control input datepicker"
-                                                   placeholder="End Date"
-                                                   required>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <button class="butn-dark"><a href="#0"><span>Search Now</span></a></button>
+                                        <div class="col col-md-6">
+                                            <ul>
+                                                <li><i class="ti-location-pin"></i> {{ tour.country }}</li>
+                                                <li><i class="ti-face-smile"></i> 10 Super</li>
+                                            </ul>
                                         </div>
                                     </div>
-                                </form>
+                                    <div class="btn-line"><a
+                                            href="{{ tour.get_absolute_url }}">{% trans 'Tour details' %}</a></div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
+        {% include 'pages/pagination.html' %}
     </div>
 {% endblock %}
