@@ -1,6 +1,7 @@
 from django.contrib import messages
 from django.core.paginator import Paginator
-from django.shortcuts import render, redirect, get_list_or_404
+from django.db.models import Q
+from django.shortcuts import render, redirect, get_list_or_404, get_object_or_404
 from django.views import View
 from django.views.generic import TemplateView
 
@@ -52,10 +53,23 @@ class TourListView(View):
     def get(self, request, *args, **kwargs):
         page = request.GET.get('page')
         search = request.GET.get('search')
+        country = request.GET.get('country')
+        city = request.GET.get('city')
+        tours = get_list_or_404(Tour.objects.prefetch_related('galleries', 'plans').all().order_by('-id'))
+
         if search:
-            tours = get_list_or_404(Tour.objects.filter(name__icontains=search).order_by('-id'))
-        else:
-            tours = get_list_or_404(Tour.objects.prefetch_related('galleries', 'plans').all().order_by('-id'))
+            tours = get_list_or_404(Tour.objects.prefetch_related('plans').filter(
+                Q(name__icontains=search) | Q(description__icontains=search) |
+                Q(plans__name__icontains=search) | Q(plans__description__icontains=search)
+            ).order_by('-id'))
+
+        if country:
+            tours = get_list_or_404(Tour.objects.filter(Q(country__name=country)).order_by('-id'))
+
+        if city:
+            city_obj = get_object_or_404(Country, name=city)
+            tours = get_list_or_404(Tour.objects.filter(Q(country_id=city_obj.parent.id)).order_by('-id'))
+
         paginator = Paginator(tours, self.paginate_by)
         object_list = paginator.get_page(page)
         return render(request, self.template_name, {'object_list': object_list})

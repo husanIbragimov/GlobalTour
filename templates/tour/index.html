@@ -218,7 +218,7 @@
                                     <div class="country">
                                         <h3>Best Tours</h3>
                                         <h4>
-                                            <a href="{% url 'tour:tour_list' %}?country={{ country|lower }}">{{ country }}</a>
+                                            <a href="{% url 'tour:tour_list' %}?country={{ country }}">{{ country }}</a>
                                         </h4>
                                         {% if country.children %}
                                             <div class="row tour-list">
@@ -226,8 +226,8 @@
                                                     <ul>
                                                         {% for child in country.children.all|slice:":3" %}
                                                             <li>
-                                                                <i class="ti-location-pin"></i> <a
-                                                                    href="{% url 'tour:tour_list' %}?country={{ country|lower }}"
+                                                                <i class="ti-location-pin"></i> 
+                                                                <a href="{% url 'tour:tour_list' %}?city={{ child }}"
                                                                     class="link-btn">{{ child }}</a>
                                                             </li>
                                                         {% endfor %}
@@ -237,8 +237,9 @@
                                                     <ul>
                                                         {% for child in country.children.all|slice:"3:6" %}
                                                             <li>
-                                                                <i class="ti-location-pin"></i> <a href="#"
-                                                                                                   class="link-btn">{{ child }}</a>
+                                                                <i class="ti-location-pin"></i> 
+                                                                <a href="{% url 'tour:tour_list' %}?city={{ child }}"
+                                                                   class="link-btn">{{ child }}</a>
                                                             </li>
                                                         {% endfor %}
                                                     </ul>
@@ -247,8 +248,9 @@
                                                     <ul>
                                                         {% for child in country.children.all|slice:"6:" %}
                                                             <li>
-                                                                <i class="ti-location-pin"></i> <a href="#"
-                                                                                                   class="link-btn">{{ child }}</a>
+                                                                <i class="ti-location-pin"></i> 
+                                                                <a href="{% url 'tour:tour_list' %}?city={{ child }}"
+                                                                   class="link-btn">{{ child }}</a>
                                                             </li>
                                                         {% endfor %}
                                                     </ul>
@@ -257,11 +259,11 @@
                                         {% endif %}
                                         <hr class="border-2">
                                         <div class="info-wrapper">
-                                            <div class="more"><a href="{% url 'tour:tour_list' %}" class="link-btn"
-                                                                 tabindex="0">View all places <i
+                                            <div class="more"><a href="{% url 'tour:tour_list' %}?country={{ country }}" class="link-btn"
+                                                                 tabindex="0">{% trans "View all places" %} <i
                                                     class="ti-arrow-right"></i></a></div>
                                             <div class="butn-dark"><a
-                                                    href="{% url 'tour:tour_list' %}?country={{ country|lower }}"><span>{% trans "Book Now" %}</span></a>
+                                                        href="{% url 'tour:tour_list' %}?country={{ country }}"><span>{% trans "Book Now" %}</span></a>
                                             </div>
                                         </div>
                                     </div>
