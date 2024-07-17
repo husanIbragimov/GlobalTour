@@ -51,7 +51,11 @@ class TourListView(View):
 
     def get(self, request, *args, **kwargs):
         page = request.GET.get('page')
-        tours = get_list_or_404(Tour.objects.prefetch_related('galleries', 'plans').all().order_by('-id'))
+        search = request.GET.get('search')
+        if search:
+            tours = get_list_or_404(Tour.objects.filter(name__icontains=search).order_by('-id'))
+        else:
+            tours = get_list_or_404(Tour.objects.prefetch_related('galleries', 'plans').all().order_by('-id'))
         paginator = Paginator(tours, self.paginate_by)
         object_list = paginator.get_page(page)
         return render(request, self.template_name, {'object_list': object_list})

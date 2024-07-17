@@ -1690,7 +1690,7 @@ hr {
     top: -6%;
     bottom: 60%;
     left: -3%;
-    background-image: url(../img/dots.png);
+    background-image: url(static/img/dots.png);
     background-repeat: repeat;
     z-index: -1;
 }
@@ -4324,7 +4324,7 @@ ol.comment-list li .children li {
 	position: relative;
 	background-blend-mode: overlay;
 	background: rgba(15, 36, 84,.4);
-	background-image: url("../img/slider/8.jpg");
+	background-image: url("static/img/slider/8.jpg");
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
