@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 00:08+0500\n"
+"POT-Creation-Date: 2024-07-17 22:08+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
 #: apps/tour/models.py:18
 msgid "Narxi"
 msgstr "Цена"
@@ -48,16 +49,38 @@ msgid "O`zbekcha"
 msgstr "Узбекский"
 
 #: core/settings.py:131
-msgid "English"
-msgstr "Английский"
-
-#: core/settings.py:132
 msgid "Русский"
 msgstr "Русский"
+
+#: core/settings.py:132
+msgid "English"
+msgstr "Английский"
 
 #: templates/about/about.html:75 templates/about/about.html:85
 msgid "Member of team"
 msgstr "Член команды"
+
+#: templates/article/article-detail.html:84
+#, fuzzy
+#| msgid "Full Name"
+msgid "Name"
+msgstr "Полное имя"
+
+#: templates/article/article-detail.html:87 templates/tour/tour-detail.html:104
+msgid "Phone Number"
+msgstr "Номер телефона"
+
+#: templates/article/article-detail.html:90
+msgid "Message"
+msgstr "Сообщение"
+
+#: templates/article/article-detail.html:94
+msgid "Send Message"
+msgstr "Отправить сообщение"
+
+#: templates/article/article-detail.html:108
+msgid "Type here"
+msgstr "Введите здесь"
 
 #: templates/article/article-detail.html:116
 msgid "Recent Posts"
@@ -67,57 +90,208 @@ msgstr "Последние записи"
 msgid "No related articles"
 msgstr "Нет связанных статей"
 
-#: templates/article/article.html:31
+#: templates/article/article.html:31 templates/tour/index.html:286
 msgid "Travel Agency"
 msgstr "Туристическое агентство"
 
-#: templates/base.html:53
+#: templates/base.html:55 templates/base.html:231
 msgid "About"
 msgstr "О нас"
 
-#: templates/base.html:56
+#: templates/base.html:58
 msgid "Article"
 msgstr "Статья"
 
-#: templates/base.html:59
+#: templates/base.html:61 templates/tour/index.html:104
 msgid "Tours"
 msgstr "Туры"
 
-#: templates/base.html:81 templates/index3.html:800
+#: templates/base.html:101 templates/index3.html:800
 msgid "We Provide Top Destinations Especially For You Book Now and Enjoy!"
-msgstr "Мы предлагаем лучшие направления специально для вас. Забронируйте сейчас и наслаждайтесь!"
+msgstr ""
+"Мы предлагаем лучшие направления специально для вас. Забронируйте сейчас и "
+"наслаждайтесь!"
 
-#: templates/base.html:89
+#: templates/base.html:109
 msgid "Call us, it's toll-free."
 msgstr "Звоните нам, это бесплатно."
 
-#: templates/base.html:186
+#: templates/base.html:176
 msgid "Call us"
 msgstr "Звоните нам"
 
-#: templates/base.html:196
+#: templates/base.html:186
 msgid "Write to us"
 msgstr "Напишите нам"
 
-#: templates/base.html:206
+#: templates/base.html:196
 msgid "Address"
 msgstr "Адрес"
 
-#: templates/base.html:207
+#: templates/base.html:197
 msgid "Toshkent, Bekabod, Nurli yo`l MFY, Buyuk Ipak yo`li 2/56"
 msgstr "Ташкент, Бекабад, Нурли йул МФЙ, Буюк Ипак йули 2/56"
 
-#: templates/base.html:251
-msgid "Sign up for our monthly blog letter to stay informed about travel and tours"
-msgstr "Подпишитесь на наш ежемесячный блог, чтобы быть в курсе новостей о путешествиях и турах"
+#: templates/base.html:228
+msgid "Quick Links"
+msgstr "Быстрые ссылки"
 
-#: templates/base.html:255
+#: templates/base.html:232
+msgid "Tour Plan"
+msgstr "План тура"
+
+#: templates/base.html:233
+msgid "Blog"
+msgstr "Блог"
+
+#: templates/base.html:240
+msgid "Subscribe"
+msgstr "Подписаться"
+
+#: templates/base.html:241
+msgid ""
+"Sign up for our monthly blog letter to stay informed about travel and tours"
+msgstr ""
+"Подпишитесь на наш ежемесячный блог, чтобы быть в курсе новостей о "
+"путешествиях и турах"
+
+#: templates/base.html:244
+#, fuzzy
+#| msgid "Address"
+msgid "Email Address"
+msgstr "Адрес"
+
+#: templates/base.html:245
 msgid "Send"
 msgstr "Отправить"
+
+#: templates/pages/404.html:15
+msgid "Not Found 404"
+msgstr "Не найдено 404"
+
+#: templates/pages/404.html:20
+msgid ""
+"The page you are looking for was moved, removed, renamed or never existed."
+msgstr ""
+"Страница, которую вы ищете, была перемещена, удалена, переименована или "
+"никогда не существовала."
+
+#: templates/pages/404.html:22
+msgid "Search"
+msgstr "Поиск"
+
+#: templates/pages/404.html:29
+msgid "Back To Home"
+msgstr "Вернуться на главную"
+
+#: templates/tour/index.html:15 templates/tour/index.html:28
+#: templates/tour/index.html:41
+msgid "Let's travel the world with us"
+msgstr "Путешествуйте по миру с нами"
+
+#: templates/tour/index.html:16
+msgid "Explore The World With <span>Global Big Tour</span>"
+msgstr "Исследуйте мир с <span>Global Big Tour</span>"
+
+#: templates/tour/index.html:42
+msgid "<span>Discover</span> the world with our guide"
+msgstr "<span>Откройте</span> мир с нашим гидом"
+
+#: templates/tour/index.html:60
+#, fuzzy
+#| msgid "Write to us"
+msgid "Where to"
+msgstr "Напишите нам"
+
+#: templates/tour/index.html:69
+msgid "Destinations"
+msgstr "Направления"
+
+#: templates/tour/index.html:79 templates/tour/index.html:82
+msgid "Duration"
+msgstr "Продолжительность"
+
+#: templates/tour/index.html:83
+msgid "1 Day Tour"
+msgstr "Тур на 1 день"
+
+#: templates/tour/index.html:84
+msgid "2-4 Days Tour"
+msgstr "Тур на 2-4 дня"
+
+#: templates/tour/index.html:85
+msgid "5-7 Days Tour"
+msgstr "Тур на 5-7 дней"
+
+#: templates/tour/index.html:86
+msgid "7+ Days Tour"
+msgstr "Тур на 7+ дней"
+
+#: templates/tour/index.html:92
+msgid "Find Now"
+msgstr "Найти сейчас"
+
+#: templates/tour/index.html:103
+msgid "Choose your place"
+msgstr "Выберите свое место"
+
+#: templates/tour/index.html:104
+msgid "Popular"
+msgstr "Популярные"
 
 #: templates/tour/index.html:141 templates/tour/tours.html:53
 msgid "Tour details"
 msgstr "Детали тура"
+
+#: templates/tour/index.html:162
+msgid "Flight Booking"
+msgstr "Бронирование авиабилетов"
+
+#: templates/tour/index.html:171
+msgid "Amazing Tour"
+msgstr "Удивительный тур"
+
+#: templates/tour/index.html:180
+msgid "Cruises Booking"
+msgstr "Бронирование круизов"
+
+#: templates/tour/index.html:189
+msgid "Ticket Booking"
+msgstr "Бронирование билетов"
+
+#: templates/tour/index.html:201
+msgid "Most Popular"
+msgstr "Самый популярный"
+
+#: templates/tour/index.html:202
+msgid "Travel <span>Countries</span>"
+msgstr "Путешествие по <span>Странам</span>"
+
+#: templates/tour/index.html:264 templates/tour/tour-detail.html:120
+msgid "Book Now"
+msgstr "Забронировать сейчас"
+
+#: templates/tour/index.html:300
+#, fuzzy
+#| msgid "Travel Agency"
+msgid "The best travel agency"
+msgstr "Туристическое агентство"
+
+#: templates/tour/index.html:343
+#, fuzzy
+#| msgid "Travel Agency"
+msgid "Travel Blog"
+msgstr "Блог о путешествиях"
+
+#: templates/tour/index.html:344
+#, fuzzy
+#| msgid "Travel Date"
+msgid "Travel"
+msgstr "Дата поездки"
+
+#: templates/tour/index.html:344
+msgid "Experience"
+msgstr "Опыт"
 
 #: templates/tour/tour-detail.html:33
 msgid "Group"
@@ -135,10 +309,6 @@ msgstr "Пока нет планов"
 msgid "Full Name"
 msgstr "Полное имя"
 
-#: templates/tour/tour-detail.html:104
-msgid "Phone Number"
-msgstr "Номер телефона"
-
 #: templates/tour/tour-detail.html:108
 msgid "Travel Date"
 msgstr "Дата поездки"
@@ -151,6 +321,5 @@ msgstr "Люди"
 msgid "Your Enquiry"
 msgstr "Ваш запрос"
 
-#: templates/tour/tour-detail.html:120
-msgid "Book Now"
-msgstr "Забронировать сейчас"
+#~ msgid "Countries"
+#~ msgstr "Страны"

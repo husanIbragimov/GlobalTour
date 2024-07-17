@@ -1,4 +1,6 @@
 {% load static i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +9,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    <title>Travol Agency</title>
+    <title>Global Big Tour Agency</title>
     <link rel="shortcut icon" href="{% static '' %}img/favicon.png"/>
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500&amp;family=Poppins:wght@300;400;500;600;700&amp;display=swap">
@@ -36,12 +38,12 @@
             <a class="logo" href="{% url 'tour:index' %}">
                 <img src="{% static 'img/logo-light.png' %}" class="logo-img" alt="">
             </a>
-            <!-- <a class="logo" href="index.html"> <h2>TRAVOL <span>explore the world</span></h2> </a> -->
         </div>
         <!-- Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar"
-                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"><i class="ti-menu"></i></span></button>
+                aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"><i class="ti-menu"></i></span>
+        </button>
         <!-- Menu -->
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto">
@@ -57,8 +59,26 @@
                 <li class="nav-item"><a
                         class="nav-link {% if request.resolver_match.url_name == 'tour_list' %}active{% endif %}"
                         href="{% url 'tour:tour_list' %}">{% trans 'Tours' %}</a></li>
-                {#                <li class="nav-item"><a class="nav-link {% if request.resolver_match.url_name == 'tour:tour_list' %}active{% endif %}"#}
-                {#                                        href="contact.html">Contact</a></li>#}
+                <!-- Language Selector -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        {% get_current_language as current_language %}
+                        {% get_language_info for current_language as lang %}
+                        <i class="ti ti-world fs-6 me-1"></i>
+                        {{ lang.code|upper }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+                        {% get_available_languages as languages %}
+                        {% get_current_language as current_language %}
+                        {% for language in languages %}
+                            <li><a class="dropdown-item {% if language.0 == current_language %}active{% endif %}"
+                                   href="/{{ language.0 }}{{ request.get_full_path|slice:'3:' }}">{{ language.1 }}</a>
+                            </li>
+                        {% endfor %}
+                        <!-- Add more languages as needed -->
+                    </ul>
+                </li>
             </ul>
         </div>
     </div>
@@ -97,9 +117,7 @@
                         </div>
                         <div class="owl-carousel owl-theme">
                             <div class="item">
-                                <p>Travel dapibus asue metus the nec feusiate era the miss hendreri the vemante the
-                                    lemon insan toleon nectan feugiat erat hendrerit necuis vesaire tours inilla neca
-                                    ine the sene miss habitan.</p>
+                                <p></p>
                                 <div class="info">
                                     <div class="author-img"><img src="{% static '' %}img/team/04.png" alt=""></div>
                                     <div class="cont">
@@ -107,34 +125,6 @@
                                                 class="star active"></i> <i class="star active"></i> <i
                                                 class="star active"></i></div>
                                         <h6>Nolan White</h6> <span>Guest review</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <p>Travel dapibus asue metus the nec feusiate era the miss hendreri the vemante the
-                                    lemon insan toleon nectan feugiat erat hendrerit necuis vesaire tours inilla neca
-                                    ine the sene miss habitan.</p>
-                                <div class="info">
-                                    <div class="author-img"><img src="{% static '' %}img/team/05.png" alt=""></div>
-                                    <div class="cont">
-                                        <div class="rating"><i class="star active"></i> <i class="star active"></i> <i
-                                                class="star active"></i> <i class="star active"></i> <i
-                                                class="star active"></i></div>
-                                        <h6>Emily Brown</h6> <span>Guest review</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <p>Travel dapibus asue metus the nec feusiate era the miss hendreri the vemante the
-                                    lemon insan toleon nectan feugiat erat hendrerit necuis vesaire tours inilla neca
-                                    ine the sene miss habitan.</p>
-                                <div class="info">
-                                    <div class="author-img"><img src="{% static '' %}img/team/06.png" alt=""></div>
-                                    <div class="cont">
-                                        <div class="rating"><i class="star active"></i> <i class="star active"></i> <i
-                                                class="star active"></i> <i class="star active"></i> <i
-                                                class="star active"></i></div>
-                                        <h6>Olivia Martin</h6> <span>Guest review</span>
                                     </div>
                                 </div>
                             </div>
@@ -235,23 +225,23 @@
                 <!-- quick links -->
                 <div class="col-md-3 offset-md-1 widget-area">
                     <div class="widget clearfix usful-links">
-                        <h3 class="widget-title">Quick Links</h3>
+                        <h3 class="widget-title">{% trans 'Quick Links' %}</h3>
                         <ul>
                             <li><a href="{% url 'tour:index' %}">Home</a></li>
-                            <li><a href="{% url 'about:about_us' %}">About</a></li>
-                            <li><a href="{% url 'tour:tour_list' %}">Tour Plan</a></li>
-                            <li><a href="{% url 'article:article_list' %}">Blog</a></li>
+                            <li><a href="{% url 'about:about_us' %}">{% trans 'About' %}</a></li>
+                            <li><a href="{% url 'tour:tour_list' %}">{% trans 'Tour Plan' %}</a></li>
+                            <li><a href="{% url 'article:article_list' %}">{% trans 'Blog' %}</a></li>
                         </ul>
                     </div>
                 </div>
                 <!-- subscribe -->
                 <div class="col-md-4 widget-area">
                     <div class="widget clearfix">
-                        <h3 class="widget-title">Subscribe</h3>
+                        <h3 class="widget-title">{% trans 'Subscribe' %}</h3>
                         <p>{% trans 'Sign up for our monthly blog letter to stay informed about travel and tours' %}</p>
                         <div class="widget-newsletter">
                             <form action="#">
-                                <input type="email" placeholder="Email Address" required>
+                                <input type="email" placeholder="{% trans 'Email Address' %}" required>
                                 <button type="submit">{% trans 'Send' %}</button>
                             </form>
                         </div>
@@ -263,7 +253,8 @@
         <div class="bottom-footer-text">
             <div class="row copyright">
                 <div class="col-md-12">
-                    <p class="mb-0">©2024 <a href="https://husanibragimov.uz">Husan Ibragimov</a>. All rights reserved.
+                    <p class="mb-0">©2024 All rights reserved. Developed by <a href="https://husanibragimov.uz">Husan
+                        Ibragimov</a>
                     </p>
                 </div>
             </div>

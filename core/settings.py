@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-6t1!%d(0al@dklh3$z=tltt0b7qha)1xka6lecf8uu52n0l+!0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -115,8 +115,6 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 
-LANGUAGE_CODE = 'uz'
-
 TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
@@ -126,11 +124,13 @@ USE_L10N = True
 USE_TZ = True
 
 # Language settings
-LANGUAGES = [
+LANGUAGE_CODE = 'uz'
+
+LANGUAGES = (
     ('uz', _('O`zbekcha')),
-    ('en', _('English')),
     ('ru', _('Русский')),
-]
+    ('en', _('English')),
+)
 
 # Languages supported by translation
 MODELTRANSLATION_DEFAULT_LANGUAGE = 'uz'
@@ -183,7 +183,6 @@ MEDIA_ROOT = BASE_DIR / 'media'
 LOCALE_PATHS = [
     BASE_DIR / 'locale/',
 ]
-
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

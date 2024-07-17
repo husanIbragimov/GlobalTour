@@ -81,17 +81,17 @@
                             <form method="post" class="row" action="#comment-list">
                                 {% csrf_token %}
                                 <div class="col-md-6 form-group">
-                                    <input name="name" type="text" placeholder="Name *" required>
+                                    <input name="name" type="text" placeholder="{% trans 'Name' %} *" required>
                                 </div>
                                 <div class="col-md-6 form-group">
-                                    <input name="phone_number" type="text" placeholder="Phone Number *" required>
+                                    <input name="phone_number" type="text" placeholder="{% trans 'Phone Number' %} *" required>
                                 </div>
                                 <div class="col-md-12 form-group">
-                                    <textarea name="message" id="message" cols="30" rows="4" placeholder="Comment *"
+                                    <textarea name="message" id="message" cols="30" rows="4" placeholder="{% trans 'Message' %} *"
                                               required></textarea>
                                 </div>
                                 <div class="col-md-12">
-                                    <button type="submit" class="butn-dark"><a href=""><span>Send Message</span></a></button>
+                                    <button type="submit" class="butn-dark"><a href=""><span>{% trans "Send Message" %}</span></a></button>
                                 </div>
                             </form>
                         </div>
@@ -105,7 +105,7 @@
                         <div class="col-md-12">
                             <div class="widget search">
                                 <form action="{% url 'article:article_list' %}" method="get">
-                                    <input type="text" name="search" placeholder="Type here ...">
+                                    <input type="text" name="search" placeholder="{% trans 'Type here' %} ...">
                                     <button type="submit"><i class="ti-search" aria-hidden="true"></i></button>
                                 </form>
                             </div>

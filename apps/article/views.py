@@ -2,7 +2,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.db.models import Q
 from django.shortcuts import redirect
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, get_list_or_404
 from django.views.generic import View
 
 from .models import Article
@@ -18,9 +18,9 @@ class ArticleListView(View):
         page = query_params.get('page')
         search = query_params.get('search')
         if search:
-            articles = Article.objects.filter(Q(name__icontains=search) | Q(content__icontains=search)).order_by('-id')
+            articles = get_list_or_404(Article.objects.filter(Q(name__icontains=search) | Q(content__icontains=search)).order_by('-id'))
         else:
-            articles = Article.objects.all().order_by('-id')
+            articles = get_list_or_404(Article.objects.all().order_by('-id'))
 
         paginator = Paginator(articles, self.paginate_by)
         object_list = paginator.get_page(page)

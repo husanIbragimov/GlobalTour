@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-md-10 offset-md-1">
                                 <h4>{% trans "Let's travel the world with us" %}</h4>
-                                    <h1>Explore The World With <span>Travol</span></h1>
+                                    <h1>{% trans "Explore The World With <span>Global Big Tour</span>" %}</h1>
                             </div>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-10 offset-md-1">
-                                <h4>Let's travel the world with us</h4>
+                                <h4>{% trans "Let's travel the world with us" %}</h4>
                                 <h1>Explore Rome With <span>Travol</span></h1>
                             </div>
                         </div>
@@ -38,8 +38,8 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-10 offset-md-1">
-                                <h4>Let's travel the world with us</h4>
-                                <h1><span>Discover</span> the world with our guide</h1>
+                                <h4>{% trans "Let's travel the world with us" %}</h4>
+                                <h1>{% trans "<span>Discover</span> the world with our guide" %}</h1>
                             </div>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
                         <div class="input2_wrapper">
                             <label>Where to?</label>
                             <div class="input2_inner">
-                                <input type="text" name="search" class="form-control input" placeholder="Where to?">
+                                <input type="text" name="search" class="form-control input" placeholder="{% trans 'Where to' %}?">
                             </div>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                             <label>Destinations</label>
                             <div class="select1_inner">
                                 <select class="select2 select" style="width: 100%">
-                                    <option value="">Destinations</option>
+                                    <option value="">{% trans "Destinations" %}</option>
                                     {% for country in countries %}
                                         <option value="{{ country }}">{{ country }}</option>
                                     {% endfor %}
@@ -76,20 +76,20 @@
                     </div>
                     <div class="col1 c4">
                         <div class="select1_wrapper">
-                            <label>Duration</label>
+                            <label>{% trans "Duration" %}</label>
                             <div class="select1_inner">
                                 <select class="select2 select" style="width: 100%">
-                                    <option value="0">Duration</option>
-                                    <option value="1">1 Day Tour</option>
-                                    <option value="2">2-4 Days Tour</option>
-                                    <option value="3">5-7 Days Tour</option>
-                                    <option value="4">7+ Days Tour</option>
+                                    <option value="0">{% trans "Duration" %}</option>
+                                    <option value="1">{% trans "1 Day Tour" %}</option>
+                                    <option value="2">{% trans "2-4 Days Tour" %}</option>
+                                    <option value="3">{% trans "5-7 Days Tour" %}</option>
+                                    <option value="4">{% trans "7+ Days Tour" %}</option>
                                 </select>
                             </div>
                         </div>
                     </div>
                     <div class="col1 c5">
-                        <button type="submit" class="btn-form1-submit"><i class="ti-search"></i> Find Now</button>
+                        <button type="submit" class="btn-form1-submit"><i class="ti-search"></i> {% trans "Find Now" %}</button>
                     </div>
                 </form>
             </div>
@@ -199,7 +199,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="section-subtitle"><span>{% trans "Most Popular" %}</span></div>
-                    <div class="section-title">{% trans "Travel" %} <span>{% trans "Countries" %}</span></div>
+                    <div class="section-title">{% trans "Travel <span>Countries</span>" %}</div>
                 </div>
             </div>
             <div class="row">
