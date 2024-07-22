@@ -10,7 +10,7 @@ from .models import Article
 
 class ArticleListView(View):
     template_name = 'article/article.html'
-    paginate_by = 1
+    paginate_by = 9
     model = Article
 
     def get(self, request, *args, **kwargs):
