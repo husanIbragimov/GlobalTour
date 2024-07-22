@@ -125,7 +125,7 @@ msgstr ""
 #: templates/base.html:197
 msgid "Toshkent, Bekabod, Nurli yo`l MFY, Buyuk Ipak yo`li 2/56"
 msgstr ""
-"Tashkent Region, Beka City 'Nurli Yol' Mahalla, Great Silk Road, House 2, "
+"Tashkent Region, Bekabad City 'Nurli Yol' Mahalla, Great Silk Road, House 2, "
 "Apartment 56."
 
 #: templates/base.html:228

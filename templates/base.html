@@ -3,8 +3,6 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from duruthemes.com/demo/html/travol/multipage-slider/index2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 14 Jul 2024 16:46:06 GMT -->
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -36,7 +34,7 @@
         <!-- Logo -->
         <div class="logo-wrapper">
             <a class="logo" href="{% url 'tour:index' %}">
-                <img src="{% static 'img/logo-light.png' %}" class="logo-img" alt="">
+                <img src="{% static 'img/logo/global.svg' %}" class="logo-img" alt="">
             </a>
         </div>
         <!-- Button -->
@@ -48,20 +46,20 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a
-                        class="nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}"
+                        class="nav-link fs-5 fw-bold {% if request.resolver_match.url_name == 'index' %}active{% endif %}"
                         href="{% url 'tour:index' %}">Home</a></li>
                 <li class="nav-item"><a
-                        class="nav-link {% if request.resolver_match.url_name == 'about_us' %}active{% endif %}"
+                        class="nav-link fs-5 fw-bold {% if request.resolver_match.url_name == 'about_us' %}active{% endif %}"
                         href="{% url 'about:about_us' %}">{% trans 'About' %}</a></li>
                 <li class="nav-item"><a
-                        class="nav-link {% if request.resolver_match.url_name == 'article_list' %}active{% endif %}"
+                        class="nav-link fs-5 fw-bold {% if request.resolver_match.url_name == 'article_list' %}active{% endif %}"
                         href="{% url 'article:article_list' %}">{% trans 'Article' %}</a></li>
                 <li class="nav-item"><a
-                        class="nav-link {% if request.resolver_match.url_name == 'tour_list' %}active{% endif %}"
+                        class="nav-link fs-5 fw-bold {% if request.resolver_match.url_name == 'tour_list' %}active{% endif %}"
                         href="{% url 'tour:tour_list' %}">{% trans 'Tours' %}</a></li>
                 <!-- Language Selector -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button"
+                    <a class="nav-link dropdown-toggle fw-bold" href="#" id="languageDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         {% get_current_language as current_language %}
                         {% get_language_info for current_language as lang %}
@@ -208,7 +206,7 @@
                 <!-- about & social icons -->
                 <div class="col-md-4 widget-area">
                     <div class="widget clearfix">
-                        <div class="footer-logo"><img class="img-fluid" src="{% static '' %}img/logo-light.png" alt="">
+                        <div class="footer-logo"><img class="img-fluid" src="{% static '' %}img/logo/light-tour.svg" alt="">
                         </div>
                         <div class="widget-text">
                             <div class="social-icons">
@@ -227,10 +225,10 @@
                     <div class="widget clearfix usful-links">
                         <h3 class="widget-title">{% trans 'Quick Links' %}</h3>
                         <ul>
-                            <li><a href="{% url 'tour:index' %}">Home</a></li>
-                            <li><a href="{% url 'about:about_us' %}">{% trans 'About' %}</a></li>
-                            <li><a href="{% url 'tour:tour_list' %}">{% trans 'Tour Plan' %}</a></li>
-                            <li><a href="{% url 'article:article_list' %}">{% trans 'Blog' %}</a></li>
+                            <li><a class="fw-bold" href="{% url 'tour:index' %}">Home</a></li>
+                            <li><a class="fw-bold" href="{% url 'about:about_us' %}">{% trans 'About' %}</a></li>
+                            <li><a class="fw-bold" href="{% url 'tour:tour_list' %}">{% trans 'Tour Plan' %}</a></li>
+                            <li><a class="fw-bold" href="{% url 'article:article_list' %}">{% trans 'Blog' %}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -270,10 +268,10 @@
 
         if (bodyScroll > 100) {
             navbar.addClass("nav-scroll");
-            logo.attr("src", "{% static 'img/logo-dark.png' %}");
+            logo.attr("src", "{% static 'img/logo/global-tour.svg' %}");
         } else {
             navbar.removeClass("nav-scroll");
-            logo.attr("src", "{% static 'img/logo-light.png' %}");
+            logo.attr("src", "{% static 'img/logo/global-tour.svg' %}");
         }
     });
 </script>
