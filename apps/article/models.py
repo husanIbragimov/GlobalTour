@@ -4,6 +4,7 @@ from django.shortcuts import reverse
 from django.template.defaultfilters import slugify
 
 from apps.common.models import BaseModel
+from core.helper import latin_slugify
 
 
 class Article(BaseModel):
@@ -18,6 +19,8 @@ class Article(BaseModel):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+        if not self.slug_ru or self.slag_ru != latin_slugify(self.name_ru):
+            self.slug_ru = latin_slugify(self.name_ru)
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):

@@ -1,4 +1,5 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
 
 from .models import Tour, TourGallery, TourPlan, BookingTour
 
@@ -8,13 +9,13 @@ class TourGalleryInline(admin.TabularInline):
     extra = 1
 
 
-class TourPlanInline(admin.TabularInline):
+class TourPlanInline(TranslationTabularInline):
     model = TourPlan
     extra = 1
 
 
 @admin.register(Tour)
-class TourAdmin(admin.ModelAdmin):
+class TourAdmin(TranslationAdmin):
     list_display = ('name', 'country', 'created_at')
     search_fields = ('name', 'slug')
     prepopulated_fields = {'slug': ('name',)}

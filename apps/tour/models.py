@@ -5,6 +5,7 @@ from django.template.defaultfilters import slugify
 from django.utils.translation import gettext_lazy as _
 
 from apps.common.models import BaseModel, Country
+from core.helper import latin_slugify
 
 
 class Tour(BaseModel):
@@ -26,6 +27,8 @@ class Tour(BaseModel):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+        if not self.slug_ru or self.slag_ru != latin_slugify(self.name_ru):
+            self.slug_ru = latin_slugify(self.name_ru)
         super().save(*args, **kwargs)
 
     def get_absolute_url(self):

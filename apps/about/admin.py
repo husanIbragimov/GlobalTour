@@ -11,7 +11,6 @@ class AboutAdmin(TranslationAdmin):
     readonly_fields = ('created_at', 'updated_at')
 
 
-
 class SocialLinkInline(admin.TabularInline):
     model = SocialLink
     extra = 1
