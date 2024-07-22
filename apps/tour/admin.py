@@ -1,5 +1,5 @@
 from django.contrib import admin
-from modeltranslation.admin import TranslationAdmin, TranslationTabularInline
+from modeltranslation.admin import TranslationAdmin, TranslationStackedInline
 
 from .models import Tour, TourGallery, TourPlan, BookingTour
 
@@ -9,7 +9,7 @@ class TourGalleryInline(admin.TabularInline):
     extra = 1
 
 
-class TourPlanInline(TranslationTabularInline):
+class TourPlanInline(TranslationStackedInline):
     model = TourPlan
     extra = 1
 

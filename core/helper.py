@@ -3,7 +3,9 @@ import re
 from unidecode import unidecode
 
 
-def latin_slugify(text):
+def latin_slugify(text=None):
+    if not text:
+        return text
     # Convert Russian characters to Latin
     text = unidecode(text)
     # Convert to lowercase
