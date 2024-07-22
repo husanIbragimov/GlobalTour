@@ -9,17 +9,22 @@ from core.helper import latin_slugify
 
 
 class Tour(BaseModel):
-    name = models.CharField(max_length=225)
-    slug = models.SlugField(max_length=225, unique=True, db_index=True, null=True, blank=True)
+    name = models.CharField(max_length=225, verbose_name=_("Nomi"))
+    slug = models.SlugField(max_length=225, unique=True, db_index=True, null=True, blank=True, verbose_name=_("Slug"))
     country = models.ForeignKey(
         Country,
         on_delete=models.SET_NULL,
-        null=True, blank=True
+        null=True, blank=True,
+        verbose_name=_("Shahar")
     )
     price = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("Narxi"))
     duration = models.CharField(max_length=50, null=True, blank=True, verbose_name=_("Sayohat davomiyligi"))
     group = models.CharField(max_length=50, null=True, blank=True, verbose_name=_("Guruh"))
-    description = RichTextField(null=True, blank=True)
+    description = RichTextField(null=True, blank=True, verbose_name=_("Tavsif"))
+
+    class Meta:
+        verbose_name = _('Sayohat')
+        verbose_name_plural = _('Sayohatlar')
 
     def __str__(self):
         return self.name
@@ -40,10 +45,15 @@ class TourPlan(BaseModel):
         Tour,
         on_delete=models.CASCADE,
         related_name="plans",
-        related_query_name="plan"
+        related_query_name="plan",
+        verbose_name=_("Sayohat")
     )
-    name = models.CharField(max_length=225)
-    description = models.TextField(null=True, blank=True)
+    name = models.CharField(max_length=225, verbose_name=_("Nomi"))
+    description = models.TextField(null=True, blank=True, verbose_name=_("Tavsif"))
+
+    class Meta:
+        verbose_name = _('Sayohat reja')
+        verbose_name_plural = _('Sayohat rejalar')
 
     def __str__(self):
         return self.name
@@ -54,9 +64,14 @@ class TourGallery(BaseModel):
         Tour,
         on_delete=models.CASCADE,
         related_name="galleries",
-        related_query_name="gallery"
+        related_query_name="gallery",
+        verbose_name=_("Sayohat")
     )
-    image = models.ImageField(upload_to="galleries/", null=True, blank=True)
+    image = models.ImageField(upload_to="galleries/", null=True, blank=True, verbose_name=_("Rasm"))
+
+    class Meta:
+        verbose_name = _('Galereya')
+        verbose_name_plural = _('Sayohat Galereyalari')
 
     def __str__(self):
         return self.image.url
@@ -72,14 +87,19 @@ class BookingTour(BaseModel):
         Tour,
         on_delete=models.CASCADE,
         related_name="bookings",
-        related_query_name="booking"
+        related_query_name="booking",
+        verbose_name=_("Sayohat")
     )
-    status = models.IntegerField(choices=STATUS, default=0)
-    full_name = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=20)
-    people = models.PositiveIntegerField(default=1)
-    message = models.CharField(max_length=255, null=True, blank=True)
-    date = models.DateField(null=True, blank=True)
+    status = models.IntegerField(choices=STATUS, default=0, verbose_name=_("Holat"))
+    full_name = models.CharField(max_length=100, verbose_name=_("Ism Familiya"))
+    phone_number = models.CharField(max_length=20, verbose_name=_("Telefon raqam"))
+    people = models.PositiveIntegerField(default=1, verbose_name=_("Odamlar soni"))
+    message = models.CharField(max_length=255, null=True, blank=True, verbose_name=_("Xabar"))
+    date = models.DateField(null=True, blank=True, verbose_name=_("Sana"))
+
+    class Meta:
+        verbose_name = _('Buyurtma')
+        verbose_name_plural = _('Buyurtmalar')
 
     def __str__(self):
         return self.full_name
