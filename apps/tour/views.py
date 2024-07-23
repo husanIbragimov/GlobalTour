@@ -18,7 +18,6 @@ class IndexView(TemplateView):
         ctx = super().get_context_data(**kwargs)
         ctx['tours'] = self.get_queryset()
         ctx['experiences'] = Article.objects.filter(is_active=True).order_by('-id')[:3]
-        ctx['countries'] = Country.objects.filter(parent__isnull=True).order_by('name')
         return ctx
 
     def get_queryset(self):

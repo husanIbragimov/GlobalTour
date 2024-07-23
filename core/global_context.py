@@ -6,5 +6,5 @@ from apps.common.models import Country
 def global_context(request):
     return {
         'about': About.objects.last(),
-        'countries': Country.objects.filter(parent__isnull=True).order_by('name')
+        'countries': Country.objects.filter(parent__isnull=True, is_active=True).order_by('name')
     }
