@@ -33,6 +33,8 @@ DEBUG = env.bool('DEBUG', 1)
 
 ALLOWED_HOSTS = ['*']
 
+CSRF_TRUSTED_ORIGINS = ['global-tour.uz', 'www.global-tour.uz']
+
 # Application definition
 
 INSTALLED_APPS = [
