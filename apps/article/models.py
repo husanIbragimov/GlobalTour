@@ -13,7 +13,7 @@ class Article(BaseModel):
     name = models.CharField(max_length=225, verbose_name=_("Nomi"))
     slug = models.SlugField(max_length=225, unique=True, db_index=True, null=True, blank=True, verbose_name=_("Slug"))
     content = RichTextField(null=True, blank=True, verbose_name=_("Tavsif"))
-    image = models.ImageField(upload_to='article/', null=True, blank=True, verbose_name=_("Rasm"))
+    image = models.ImageField(upload_to='article/', null=True, blank=True, verbose_name=_("Rasm"), help_text=_("Rasm hajmi 1,920x1280 px bo'lishi kerak. Havola: https://pexels.com/"))
 
     class Meta:
         verbose_name = 'Maqola'

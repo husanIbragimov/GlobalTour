@@ -14,7 +14,8 @@ class BaseModel(models.Model):
 
 class Country(BaseModel):
     name = models.CharField(max_length=100, verbose_name=_("Nomi"))
-    image = models.ImageField(upload_to='countries/', null=True, blank=True, verbose_name=_("Rasm"))
+    image = models.ImageField(upload_to='countries/', null=True, blank=True, verbose_name=_("Rasm"),
+                              help_text=_("Rasm hajmi 1700x1133 px bo'lishi kerak. Havola: https://pexels.com/"))
     flag = models.ImageField(upload_to='flags/', null=True, blank=True, verbose_name=_("Bayroq"))
     parent = models.ForeignKey(
         'self',
