@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-17 22:08+0500\n"
+"POT-Creation-Date: 2024-07-23 19:27+0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,39 +18,161 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: apps/about/models.py:9 apps/article/models.py:13 apps/common/models.py:16
+#: apps/tour/models.py:12 apps/tour/models.py:49
+msgid "Nomi"
+msgstr ""
+
+#: apps/about/models.py:10 apps/article/models.py:15 apps/tour/models.py:23
+#: apps/tour/models.py:50
+msgid "Tavsif"
+msgstr ""
+
+#: apps/about/models.py:11 apps/about/models.py:24 apps/article/models.py:16
+#: apps/common/models.py:17 apps/tour/models.py:68
+msgid "Rasm"
+msgstr ""
+
+#: apps/about/models.py:12 apps/article/models.py:51 apps/tour/models.py:93
+msgid "Telefon raqam"
+msgstr ""
+
+#: apps/about/models.py:23
+msgid "Ism Familya"
+msgstr ""
+
+#: apps/about/models.py:43
+msgid "Jamoa a'zosi"
+msgstr ""
+
+#: apps/about/models.py:44
+msgid "Tarmoq turi"
+msgstr ""
+
+#: apps/about/models.py:45
+msgid "Havola"
+msgstr ""
+
+#: apps/article/models.py:14 apps/tour/models.py:13
+msgid "Slug"
+msgstr ""
+
+#: apps/article/models.py:40
+msgid "Maqola"
+msgstr ""
+
+#: apps/article/models.py:42
+msgid "Ism"
+msgstr ""
+
+#: apps/article/models.py:49 apps/common/models.py:26
+msgid "Parent"
+msgstr ""
+
+#: apps/article/models.py:52
+msgid "Matn"
+msgstr ""
+
+#: apps/article/models.py:53
+msgid "Chop etilgan"
+msgstr ""
+
+#: apps/common/models.py:18
+msgid "Bayroq"
+msgstr ""
+
 #: apps/tour/models.py:18
+msgid "Shahar"
+msgstr ""
+
+#: apps/tour/models.py:20
 msgid "Narxi"
 msgstr "Price"
 
-#: apps/tour/models.py:19
+#: apps/tour/models.py:21
 msgid "Sayohat davomiyligi"
 msgstr "Duration of the trip"
 
-#: apps/tour/models.py:20
+#: apps/tour/models.py:22
 msgid "Guruh"
 msgstr "Group"
 
-#: apps/tour/models.py:64
+#: apps/tour/models.py:26 apps/tour/models.py:47 apps/tour/models.py:66
+#: apps/tour/models.py:89
+msgid "Sayohat"
+msgstr ""
+
+#: apps/tour/models.py:27
+msgid "Sayohatlar"
+msgstr ""
+
+#: apps/tour/models.py:53
+msgid "Sayohat reja"
+msgstr ""
+
+#: apps/tour/models.py:54
+msgid "Sayohat rejalar"
+msgstr ""
+
+#: apps/tour/models.py:71
+msgid "Galereya"
+msgstr ""
+
+#: apps/tour/models.py:72
+#, fuzzy
+#| msgid "Sayohat davomiyligi"
+msgid "Sayohat Galereyalari"
+msgstr "Duration of the trip"
+
+#: apps/tour/models.py:80
 msgid "New"
 msgstr ""
 
-#: apps/tour/models.py:65
+#: apps/tour/models.py:81
 msgid "Confirmed"
 msgstr ""
 
-#: apps/tour/models.py:66
+#: apps/tour/models.py:82
 msgid "Canceled"
 msgstr ""
 
-#: core/settings.py:130
+#: apps/tour/models.py:91
+msgid "Holat"
+msgstr ""
+
+#: apps/tour/models.py:92
+msgid "Ism Familiya"
+msgstr ""
+
+#: apps/tour/models.py:94
+msgid "Odamlar soni"
+msgstr ""
+
+#: apps/tour/models.py:95
+msgid "Xabar"
+msgstr ""
+
+#: apps/tour/models.py:96
+msgid "Sana"
+msgstr ""
+
+#: apps/tour/models.py:99
+msgid "Buyurtma"
+msgstr ""
+
+#: apps/tour/models.py:100
+msgid "Buyurtmalar"
+msgstr ""
+
+#: core/settings.py:135
 msgid "O`zbekcha"
 msgstr "Uzbek"
 
-#: core/settings.py:131
+#: core/settings.py:136
 msgid "Русский"
 msgstr "Russian"
 
-#: core/settings.py:132
+#: core/settings.py:137
 msgid "English"
 msgstr ""
 
@@ -86,91 +208,92 @@ msgstr ""
 msgid "No related articles"
 msgstr ""
 
-#: templates/article/article.html:31 templates/tour/index.html:286
+#: templates/article/article.html:31 templates/tour/index.html:288
 msgid "Travel Agency"
 msgstr ""
 
-#: templates/base.html:55 templates/base.html:231
+#: templates/base.html:53 templates/base.html:240 templates/pages/404.html:55
 msgid "About"
 msgstr ""
 
-#: templates/base.html:58
-msgid "Article"
+#: templates/base.html:56 templates/pages/404.html:58
+msgid "Articles"
 msgstr ""
 
-#: templates/base.html:61 templates/tour/index.html:104
+#: templates/base.html:59 templates/pages/404.html:61
+#: templates/tour/index.html:104
 msgid "Tours"
 msgstr ""
 
-#: templates/base.html:101 templates/index3.html:800
+#: templates/base.html:99 templates/index3.html:800
 msgid "We Provide Top Destinations Especially For You Book Now and Enjoy!"
 msgstr ""
 
-#: templates/base.html:109
+#: templates/base.html:107
 msgid "Call us, it's toll-free."
 msgstr ""
 
-#: templates/base.html:176
+#: templates/base.html:174
 msgid "Call us"
 msgstr ""
 
-#: templates/base.html:186
+#: templates/base.html:184
 msgid "Write to us"
 msgstr ""
 
-#: templates/base.html:196
+#: templates/base.html:194
 msgid "Address"
 msgstr ""
 
-#: templates/base.html:197
+#: templates/base.html:195
 msgid "Toshkent, Bekabod, Nurli yo`l MFY, Buyuk Ipak yo`li 2/56"
 msgstr ""
 "Tashkent Region, Bekabad City 'Nurli Yol' Mahalla, Great Silk Road, House 2, "
 "Apartment 56."
 
-#: templates/base.html:228
+#: templates/base.html:237
 msgid "Quick Links"
 msgstr ""
 
-#: templates/base.html:232
+#: templates/base.html:241
 msgid "Tour Plan"
 msgstr ""
 
-#: templates/base.html:233
+#: templates/base.html:242
 msgid "Blog"
 msgstr ""
 
-#: templates/base.html:240
+#: templates/base.html:249
 msgid "Subscribe"
 msgstr ""
 
-#: templates/base.html:241
+#: templates/base.html:250
 msgid ""
 "Sign up for our monthly blog letter to stay informed about travel and tours"
 msgstr ""
 
-#: templates/base.html:244
+#: templates/base.html:253
 msgid "Email Address"
 msgstr ""
 
-#: templates/base.html:245
+#: templates/base.html:254
 msgid "Send"
 msgstr ""
 
-#: templates/pages/404.html:15
+#: templates/pages/404.html:97
 msgid "Not Found 404"
 msgstr ""
 
-#: templates/pages/404.html:20
+#: templates/pages/404.html:102
 msgid ""
 "The page you are looking for was moved, removed, renamed or never existed."
 msgstr ""
 
-#: templates/pages/404.html:22
+#: templates/pages/404.html:104 templates/pages/404.html:105
 msgid "Search"
 msgstr ""
 
-#: templates/pages/404.html:29
+#: templates/pages/404.html:111
 msgid "Back To Home"
 msgstr ""
 
@@ -227,7 +350,7 @@ msgstr ""
 msgid "Popular"
 msgstr ""
 
-#: templates/tour/index.html:141 templates/tour/tours.html:53
+#: templates/tour/index.html:141 templates/tour/tours.html:52
 msgid "Tour details"
 msgstr ""
 
@@ -255,23 +378,27 @@ msgstr ""
 msgid "Travel <span>Countries</span>"
 msgstr ""
 
-#: templates/tour/index.html:264 templates/tour/tour-detail.html:120
+#: templates/tour/index.html:263
+msgid "View all places"
+msgstr ""
+
+#: templates/tour/index.html:266 templates/tour/tour-detail.html:120
 msgid "Book Now"
 msgstr ""
 
-#: templates/tour/index.html:300
+#: templates/tour/index.html:302
 msgid "The best travel agency"
 msgstr ""
 
-#: templates/tour/index.html:343
+#: templates/tour/index.html:345
 msgid "Travel Blog"
 msgstr ""
 
-#: templates/tour/index.html:344
+#: templates/tour/index.html:346
 msgid "Travel"
 msgstr ""
 
-#: templates/tour/index.html:344
+#: templates/tour/index.html:346
 msgid "Experience"
 msgstr ""
 

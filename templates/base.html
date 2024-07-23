@@ -53,7 +53,7 @@
                         href="{% url 'about:about_us' %}">{% trans 'About' %}</a></li>
                 <li class="nav-item"><a
                         class="nav-link fs-5 fw-bold {% if request.resolver_match.url_name == 'article_list' %}active{% endif %}"
-                        href="{% url 'article:article_list' %}">{% trans 'Article' %}</a></li>
+                        href="{% url 'article:article_list' %}">{% trans 'Articles' %}</a></li>
                 <li class="nav-item"><a
                         class="nav-link fs-5 fw-bold {% if request.resolver_match.url_name == 'tour_list' %}active{% endif %}"
                         href="{% url 'tour:tour_list' %}">{% trans 'Tours' %}</a></li>
