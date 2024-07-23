@@ -64,8 +64,10 @@ class TourGallery(BaseModel):
         related_query_name="gallery",
         verbose_name=_("Sayohat")
     )
-    image = models.ImageField(upload_to="galleries/", null=True, blank=True, verbose_name=_("Rasm"),
-                              help_text=_("Rasm hajmi 1,200x1,700 px bo'lishi kerak. Havola: https://pexels.com/"))
+    image = models.ImageField(
+        upload_to="galleries/", null=True, blank=True, verbose_name=_("Rasm"),
+        help_text=_("Rasm hajmi 1200x1700 px bo'lishi kerak. Havola: https://pexels.com/")
+    )
 
     class Meta:
         verbose_name = _('Galereya')
