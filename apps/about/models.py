@@ -8,7 +8,8 @@ from apps.common.models import BaseModel
 class About(BaseModel):
     name = models.CharField(max_length=100, verbose_name=_('Nomi'))
     description = RichTextField(null=True, blank=True, verbose_name=_('Tavsif'))
-    image = models.ImageField(upload_to='about/', null=True, blank=True, verbose_name=_('Rasm'))
+    image = models.ImageField(upload_to='about/', null=True, blank=True, verbose_name=_('Rasm'),
+                              help_text=_('Rasm hajmi 1200x1700 px bo\'lishi kerak. Havola: https://pexels.com/'))
     phone_number = models.CharField(max_length=20, null=True, blank=True, verbose_name=_('Telefon raqam'))
 
     class Meta:
@@ -21,7 +22,8 @@ class About(BaseModel):
 
 class Team(BaseModel):
     name = models.CharField(max_length=100, verbose_name=_('Ism Familya'))
-    image = models.ImageField(upload_to='team/', null=True, blank=True, verbose_name=_('Rasm'))
+    image = models.ImageField(upload_to='team/', null=True, blank=True, verbose_name=_('Rasm'),
+                              help_text=_('Rasm hajmi 650X800 px bo\'lishi kerak. Havola: https://pexels.com/'))
 
     class Meta:
         verbose_name = 'Jamoa a\'zosi'
