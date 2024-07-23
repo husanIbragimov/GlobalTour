@@ -21,49 +21,49 @@ msgstr ""
 #: apps/about/models.py:9 apps/article/models.py:13 apps/common/models.py:16
 #: apps/tour/models.py:12 apps/tour/models.py:49
 msgid "Nomi"
-msgstr ""
+msgstr "Name"
 
 #: apps/about/models.py:10 apps/article/models.py:15 apps/tour/models.py:23
 #: apps/tour/models.py:50
 msgid "Tavsif"
-msgstr ""
+msgstr "Description"
 
 #: apps/about/models.py:11 apps/about/models.py:24 apps/article/models.py:16
 #: apps/common/models.py:17 apps/tour/models.py:68
 msgid "Rasm"
-msgstr ""
+msgstr "Image"
 
 #: apps/about/models.py:12 apps/article/models.py:51 apps/tour/models.py:93
 msgid "Telefon raqam"
-msgstr ""
+msgstr "Phone Number"
 
 #: apps/about/models.py:23
 msgid "Ism Familya"
-msgstr ""
+msgstr "Full Name"
 
 #: apps/about/models.py:43
 msgid "Jamoa a'zosi"
-msgstr ""
+msgstr "Member of team"
 
 #: apps/about/models.py:44
 msgid "Tarmoq turi"
-msgstr ""
+msgstr "Social type"
 
 #: apps/about/models.py:45
 msgid "Havola"
-msgstr ""
+msgstr "Link"
 
 #: apps/article/models.py:14 apps/tour/models.py:13
 msgid "Slug"
-msgstr ""
+msgstr "Slug"
 
 #: apps/article/models.py:40
 msgid "Maqola"
-msgstr ""
+msgstr "Article"
 
 #: apps/article/models.py:42
 msgid "Ism"
-msgstr ""
+msgstr "Name"
 
 #: apps/article/models.py:49 apps/common/models.py:26
 msgid "Parent"
@@ -71,19 +71,19 @@ msgstr ""
 
 #: apps/article/models.py:52
 msgid "Matn"
-msgstr ""
+msgstr "Description"
 
 #: apps/article/models.py:53
 msgid "Chop etilgan"
-msgstr ""
+msgstr "Published"
 
 #: apps/common/models.py:18
 msgid "Bayroq"
-msgstr ""
+msgstr "Flag"
 
 #: apps/tour/models.py:18
 msgid "Shahar"
-msgstr ""
+msgstr "Countries"
 
 #: apps/tour/models.py:20
 msgid "Narxi"
@@ -100,23 +100,23 @@ msgstr "Group"
 #: apps/tour/models.py:26 apps/tour/models.py:47 apps/tour/models.py:66
 #: apps/tour/models.py:89
 msgid "Sayohat"
-msgstr ""
+msgstr "Tour"
 
 #: apps/tour/models.py:27
 msgid "Sayohatlar"
-msgstr ""
+msgstr "Tours"
 
 #: apps/tour/models.py:53
 msgid "Sayohat reja"
-msgstr ""
+msgstr "Tour plan"
 
 #: apps/tour/models.py:54
 msgid "Sayohat rejalar"
-msgstr ""
+msgstr "Tour plans"
 
 #: apps/tour/models.py:71
 msgid "Galereya"
-msgstr ""
+msgstr "Gallery"
 
 #: apps/tour/models.py:72
 #, fuzzy
@@ -138,31 +138,31 @@ msgstr ""
 
 #: apps/tour/models.py:91
 msgid "Holat"
-msgstr ""
+msgstr "Status"
 
 #: apps/tour/models.py:92
 msgid "Ism Familiya"
-msgstr ""
+msgstr "Full Name"
 
 #: apps/tour/models.py:94
 msgid "Odamlar soni"
-msgstr ""
+msgstr "Group"
 
 #: apps/tour/models.py:95
 msgid "Xabar"
-msgstr ""
+msgstr "News"
 
 #: apps/tour/models.py:96
 msgid "Sana"
-msgstr ""
+msgstr "Date"
 
 #: apps/tour/models.py:99
 msgid "Buyurtma"
-msgstr ""
+msgstr "Order"
 
 #: apps/tour/models.py:100
 msgid "Buyurtmalar"
-msgstr ""
+msgstr "Orders"
 
 #: core/settings.py:135
 msgid "O`zbekcha"

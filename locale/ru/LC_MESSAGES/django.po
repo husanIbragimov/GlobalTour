@@ -221,8 +221,6 @@ msgid "About"
 msgstr "О нас"
 
 #: templates/base.html:56 templates/pages/404.html:58
-#, fuzzy
-#| msgid "Article"
 msgid "Articles"
 msgstr "Статьи"
 
